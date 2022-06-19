@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_ui_clone/model/model_movie.dart';
+import 'package:netflix_ui_clone/widget/box_slider.dart';
 import 'package:netflix_ui_clone/widget/carousel_slider.dart';
+import 'package:netflix_ui_clone/widget/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -13,17 +15,20 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    }), Movie.fromMap({
+    }),
+    Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    }), Movie.fromMap({
+    }),
+    Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    }), Movie.fromMap({
+    }),
+    Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
@@ -45,7 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
             CarouselImage(movies: movies),
             TopBar(),
           ],
-        )
+        ),
+        CircleSlider(
+          movies: movies,
+        ),
+        BoxSlider(movies: movies)
       ],
     );
   }
