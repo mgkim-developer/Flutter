@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_ui_clone/screen/home_screen.dart';
+import 'package:netflix_ui_clone/screen/more_screen.dart';
 import 'package:netflix_ui_clone/widget/bottom_bar.dart';
 
 void main() => runApp(MyApp());
@@ -10,14 +11,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late TabController controller;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'mgyoFlix',
+    return MaterialApp(
+        title: 'mgyoFlix',
         theme: ThemeData(
             brightness: Brightness.dark,
             primaryColor: Colors.black,
-            accentColor: Colors.white
-        ),
+            accentColor: Colors.white),
         home: DefaultTabController(
           length: 4,
           child: Scaffold(
@@ -25,14 +27,21 @@ class _MyAppState extends State<MyApp> {
               physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 HomeScreen(),
-                Container(child: Center(child: Text('search'),),),
-                Container(child: Center(child: Text('save'),),),
-                Container(child: Center(child: Text('more'),),),
+                Container(
+                  child: Center(
+                    child: Text('search'),
+                  ),
+                ),
+                Container(
+                  child: Center(
+                    child: Text('save'),
+                  ),
+                ),
+                MoreScreen(),
               ],
             ),
             bottomNavigationBar: Bottom(),
           ),
-        )
-    );
+        ));
   }
 }
