@@ -4,12 +4,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:netflix_ui_clone/screen/detail_screen.dart';
 
 class CarouselImage extends StatefulWidget {
+//   final List<Movie> movies;
+//   CarouselImage({Key? key, required this.movies}) : super(key: key);
+//
+//   @override
+//   State<CarouselImage> createState() => _CarouselImageState();
   final List<Movie> movies;
-
-  CarouselImage({Key? key, required this.movies}) : super(key: key);
-
-  @override
-  State<CarouselImage> createState() => _CarouselImageState();
+  CarouselImage({required this.movies});
+  _CarouselImageState createState() => _CarouselImageState();
 }
 
 class _CarouselImageState extends State<CarouselImage> {
@@ -19,6 +21,16 @@ class _CarouselImageState extends State<CarouselImage> {
   List<bool>? likes;
   int _currentpage = 0;
   late String _currentKeyword;
+
+  @override
+  void initState() {
+    super.initState();
+    movies = widget.movies;
+    images = movies?.map((m) => Image.network(m.poster)).toList();
+    keywords = movies?.map((m) => m.keyword).toList();
+    likes = movies?.map((m) => m.like).toList();
+    _currentKeyword = keywords![0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +68,24 @@ class _CarouselImageState extends State<CarouselImage> {
                       likes![_currentpage]
                           ? IconButton(
                               icon: Icon(Icons.check),
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  likes![_currentpage] = !likes![_currentpage];
+                                  movies![_currentpage]
+                                      .reference
+                                      .update({'like': likes![_currentpage]});
+                                });
+                              },
                             )
                           : IconButton(
                               icon: Icon(Icons.add),
-                              onPressed: () {},
+                              onPressed: () {
+                              setState(() {
+                                likes![_currentpage] =! likes![_currentpage];
+                                movies![_currentpage].reference.update(
+                                  {'like': likes![_currentpage]});
+                              });
+                             },
                             ),
                       Text(
                         '내가 찜한 콘텐츠',
@@ -139,20 +164,11 @@ class _CarouselImageState extends State<CarouselImage> {
             shape: BoxShape.circle,
             color: _currentpage == i
                 ? Color.fromRGBO(255, 255, 255, 0.9)
-                : Color.fromRGBO(255, 255, 255, 0.4)),
+                : Color.fromRGBO(255, 255, 255, 0.4)
+        ),
       ));
     }
 
     return results;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    movies = widget.movies;
-    images = movies?.map((m) => Image.asset('./images/' + m.poster)).toList();
-    keywords = movies?.map((m) => m.keyword).cast<String>().toList();
-    likes = movies?.map((m) => m.like).cast<bool>().toList();
-    _currentKeyword = keywords![0];
   }
 }
