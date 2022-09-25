@@ -50,7 +50,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 Container(
                                   padding: EdgeInsets.all(7),
                                   child: Text(
-                                    '99% 일치 2019 15+ 시즌 1개',
+                                    '99% 일치 2022 15+ 시즌 1개',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(fontSize: 13),
                                   ),

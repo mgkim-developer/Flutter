@@ -36,7 +36,7 @@ class _CarouselImageState extends State<CarouselImage> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: [
+        children: <Widget>[
           Container(
             padding: EdgeInsets.all(20),
           ),
