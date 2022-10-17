@@ -22,15 +22,25 @@ class MoreScreen extends StatelessWidget {
                 'Mingyo Kim',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 30,
                     color: Colors.white),
               ),
             ),
             Container(
                 padding: EdgeInsets.all(10),
-                width: 140,
+                width: 170,
                 height: 5,
                 color: Colors.red),
+            Container(
+              padding: EdgeInsets.only(top: 15),
+              child: Text(
+                'Software Engineer',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Colors.white),
+              ),
+            ),
             Container(
               padding: EdgeInsets.all(10),
               child: Linkify(
