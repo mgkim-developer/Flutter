@@ -19,7 +19,7 @@ class MoreScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(top: 15),
               child: Text(
-                'MinGyo Kim',
+                'Mingyo Kim',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
@@ -39,7 +39,7 @@ class MoreScreen extends StatelessWidget {
                     await launch(link.url);
                   }
                 },
-                text: 'https://github.com/mgkim-developer',
+                text: 'https://github.com/mgyokim',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 linkStyle: TextStyle(color: Colors.white),
               ),
